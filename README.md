@@ -1,4 +1,7 @@
-# Node.js Rest APIs with Express & MySQL example
+# home media library
+This project's focus is to create a local media server to assist with cataloging media. The first version will be limited to movies, but then later versions will store books, music, and games. The goal is more of a learning exercise. 
+
+# Technical specs
 
 A barebones project to bootstrap MySQL, Express.js, and Node.js. Features include:  
 
