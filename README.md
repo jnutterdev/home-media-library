@@ -19,5 +19,5 @@ npm install
 
 ### Run
 ```
-nodemon server.js
+npm run start
 ```

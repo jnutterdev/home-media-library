@@ -27,6 +27,6 @@
     },
     "devDependencies": {
         "less": "^4.1.1",
-        "nodemon": "^2.0.7"
+        "nodemon": "^2.0.13"
     }
 }
