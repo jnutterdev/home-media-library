@@ -1,7 +1,6 @@
 const express = require("express");
 const exphbs = require('express-handlebars');
 const app = express();
-// const sassMiddleware = require('node-sass-middleware');
 const lessMiddleware = require('less-middleware');
 require('dotenv').config();
 
@@ -40,8 +39,9 @@ app.get("/ping", (req, res) => {
 });
 
 // current routes used for app
-require("./app/server/routes/main.routes.js")(app);
-require("./app/server/routes/customer.routes.js")(app);
+const routes = require("./app/server/routes/main.routes.js");
+app.use('/', routes);
+// require("./app/server/routes/customer.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

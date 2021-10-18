@@ -1,4 +1,11 @@
-exports.onLoad = (req, res) => {
-    // Validate request
-    res.render('home', {title: "Welcome to node", subject: "a simple bootstrapped node project."});
-};
+exports.homePage = (req, res) => {
+    res.render('./home');
+}
+
+exports.importPage = (req, res) => {
+    res.render('./home');
+}
+
+exports.accountPage = (req, res) => {
+    res.render('./home');
+}
