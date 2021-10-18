@@ -52,10 +52,9 @@ app.get("/ping", (req, res) => {
 });
 
 // current routes used for app
-const routes = require("./app/server/routes/main.routes.js");
-app.use('/', routes);
 
-require("./app/server/routes/turorial.routes")(app);
+require("./app/server/routes/main.routes")(app);
+require("./app/server/routes/tutorial.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

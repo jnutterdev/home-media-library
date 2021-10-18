@@ -1,14 +1,14 @@
-// Route module
-const express = require('express');
-const router = express.Router();
+module.exports = app => {
+    const main_controller = require("../controllers/main.controller.js");
+    var router = require("express").Router();
 
-const main_controller = require('../controllers/main.controller.js');
+    //GET home page
+    router.get('/', main_controller.homePage);
 
-//GET home page
-router.get('/', main_controller.homePage);
+    router.get('/import', main_controller.importPage);
 
-router.get('/import', main_controller.importPage);
+    router.get('/account', main_controller.accountPage);
 
-router.get('/account', main_controller.accountPage);
+    app.use('/', router);
 
-module.exports = router;
+}
