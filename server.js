@@ -1,14 +1,27 @@
 const express = require("express");
 const exphbs = require('express-handlebars');
+const cors = require("cors");
 const app = express();
 const lessMiddleware = require('less-middleware');
 require('dotenv').config();
+
+var corsOptions = {
+  origin: "http://localhost:3000"
+};
+
+app.use(cors(corsOptions));
 
 // Parse requests of content-type - application/json
 app.use(express.json());
 
 // Parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+
+// Use sequelize for mysql
+const db = require("./app/server/models");
+db.sequelize.sync({ force: true }).then(() => {
+  console.log("Drop and re-sync db.");
+});
 
 // Static files
 const path = require('path');
@@ -41,7 +54,8 @@ app.get("/ping", (req, res) => {
 // current routes used for app
 const routes = require("./app/server/routes/main.routes.js");
 app.use('/', routes);
-// require("./app/server/routes/customer.routes.js")(app);
+
+require("./app/server/routes/turorial.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
